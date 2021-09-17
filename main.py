@@ -23,6 +23,9 @@ resnet = InceptionResnetV1(pretrained='vggface2').eval()
 
 app = FastAPI()
 
+@app.get('/')
+async def root():
+    return {"message": "Bienvenido"}
 
 @app.post('/file')
 async def _file_upload(
@@ -70,12 +73,12 @@ async def _file_upload(
                 return dictionary
             else:
                 print("No match")
-                return "Mensaje": "La cara no esta dentro de la base de datos"
+                return {"Mensaje": "La cara no esta dentro de la base de datos"}
         else:
             print("Probabilidad muy baja de que sea una cara")
-            return "Mensaje": "Probabilidad muy baja de que sea una cara"
+            return {"Mensaje": "Probabilidad muy baja de que sea una cara"}
     else:
         print("No se detecto una cara")
-        return "Mensaje": "No se detecto una cara"
+        return {"Mensaje": "No se detecto una cara"}
 
     
