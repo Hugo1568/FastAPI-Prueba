@@ -42,7 +42,7 @@ async def _file_upload(
     name_list = load_data[1]
 
     img = Image.fromarray(imagefile)
-        #print(img)
+        
     img_cropped, prob = mtcnn(img, return_prob=True) 
         
         
@@ -50,7 +50,7 @@ async def _file_upload(
         if prob>0.90:
             emb = resnet(img_cropped[0].unsqueeze(0)).detach() 
                         
-            dist_list = [] # list of matched distances, minimum distance is used to identify the person
+            dist_list = []
                         
             for idx, emb_db in enumerate(embedding_list):
                 dist = torch.dist(emb, emb_db).item()
