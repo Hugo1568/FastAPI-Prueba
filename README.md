@@ -1,7 +1,7 @@
 # FastAPI-Prueba
 Prueba de un modelo con FastAPI
 
-Utilza main.py con "uvicorn main:app" para correr la api
+Utilza main.py con "uvicorn main:app" para correr la api.
 
 La API requiere de:
 
